@@ -1,0 +1,4 @@
+connaisseur:
+  kubernetes:
+    deployment:
+      imagePullPolicy: Always

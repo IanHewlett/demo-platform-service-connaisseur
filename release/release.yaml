@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: connaisseur
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - chart: connaisseur
+      repoURL: https://sse-secure-systems.github.io/connaisseur/charts
+      targetRevision: 2.2.0
+      helm:
+        releaseName: connaisseur
+        valueFiles:
+        - $values/release/values.yaml
+    - repoURL: https://github.com/IanHewlett/demo-platform-service-connaisseur.git
+      targetRevision: main
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
