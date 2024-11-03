@@ -1,4 +1,17 @@
-connaisseur:
-  kubernetes:
-    deployment:
-      imagePullPolicy: Always
+kubernetes:
+  deployment:
+    nodeSelector:
+      nodegroup: "management-nodes"
+    tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "management"
+        effect: "NoSchedule"
+    affinity: null
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1024Mi
+      requests:
+        cpu: 100m
+        memory: 512Mi
