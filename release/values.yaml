@@ -1,5 +1,6 @@
 kubernetes:
   deployment:
+    replicasCount: 1
     nodeSelector:
       nodegroup: "management-nodes"
     tolerations:
@@ -7,7 +8,6 @@ kubernetes:
         operator: "Equal"
         value: "management"
         effect: "NoSchedule"
-    affinity: null
     resources:
       limits:
         cpu: 500m
@@ -15,3 +15,7 @@ kubernetes:
       requests:
         cpu: 100m
         memory: 512Mi
+application:
+  features:
+    namespacedValidation:
+      mode: validate
