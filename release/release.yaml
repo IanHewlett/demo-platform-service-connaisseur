@@ -9,7 +9,7 @@ spec:
   sources:
     - chart: connaisseur
       repoURL: https://sse-secure-systems.github.io/connaisseur/charts
-      targetRevision: 2.2.0
+      targetRevision: 2.7.0
       helm:
         releaseName: connaisseur
         valueFiles:
