@@ -15,6 +15,9 @@ kubernetes:
       requests:
         cpu: 100m
         memory: 512Mi
+  redis:
+    image:
+      repository: docker.io/redis
 application:
   features:
     namespacedValidation:
