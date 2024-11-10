@@ -19,3 +19,6 @@ application:
   features:
     namespacedValidation:
       mode: validate
+  policy:
+    - pattern: '*:*'
+      validator: deny
