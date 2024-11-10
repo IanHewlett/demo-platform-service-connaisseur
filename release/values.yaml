@@ -1,6 +1,6 @@
 kubernetes:
   deployment:
-    replicasCount: 1
+    replicasCount: 3
     nodeSelector:
       nodegroup: "management-nodes"
     tolerations:
