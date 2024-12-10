@@ -1,13 +1,16 @@
 kubernetes:
   deployment:
     replicasCount: 3
+
     nodeSelector:
       nodegroup: "management-nodes"
+
     tolerations:
       - key: "dedicated"
         operator: "Equal"
         value: "management"
         effect: "NoSchedule"
+
     resources:
       limits:
         cpu: 500m
@@ -15,13 +18,16 @@ kubernetes:
       requests:
         cpu: 100m
         memory: 512Mi
+
   redis:
     image:
       repository: docker.io/redis
+
 application:
   features:
     namespacedValidation:
       mode: validate
+
   policy:
     - pattern: '*:*'
       validator: deny
